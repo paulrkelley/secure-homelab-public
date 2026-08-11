@@ -1,0 +1,7 @@
+---
+# Synthetic portfolio example only.
+management_network: "{{ management_network }}"
+dns_service_network: "{{ dns_service_network }}"
+enable_audit_logging: true
+ssh_allow_root_login: false
+ssh_allow_agent_forwarding: false
