@@ -1,0 +1,18 @@
+---
+# Documentation-only example values.
+# Do not commit production addressing or sensitive topology.
+
+dns_service_interfaces:
+  - "127.0.0.1"
+  - "::1"
+
+dns_allowed_networks:
+  - "192.0.2.0/24"
+
+dns_internal_domain: "internal.example"
+
+chrony_enable_server: false
+chrony_allowed_networks: []
+
+# Public scaffold intentionally leaves upstream policy generic.
+chrony_upstream_pool: "pool.example.invalid"

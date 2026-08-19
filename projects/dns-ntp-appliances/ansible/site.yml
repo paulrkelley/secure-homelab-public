@@ -1,0 +1,7 @@
+---
+- name: Configure DNS/NTP appliance
+  hosts: all
+  become: true
+
+  roles:
+    - dns_ntp_appliance

@@ -1,0 +1,6 @@
+all:
+  hosts:
+    dns-appliance-01:
+      ansible_host: 192.0.2.50
+  vars:
+    ansible_user: admin

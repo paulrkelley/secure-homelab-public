@@ -1,0 +1,24 @@
+---
+- name: Validate Unbound configuration
+  ansible.builtin.command: unbound-checkconf
+  changed_when: false
+  listen: Validate and restart Unbound
+
+- name: Restart Unbound
+  ansible.builtin.service:
+    name: unbound
+    state: restarted
+    enabled: true
+  listen: Validate and restart Unbound
+
+- name: Validate Chrony configuration
+  ansible.builtin.command: chronyd -p
+  changed_when: false
+  listen: Validate and restart Chrony
+
+- name: Restart Chrony
+  ansible.builtin.service:
+    name: chrony
+    state: restarted
+    enabled: true
+  listen: Validate and restart Chrony

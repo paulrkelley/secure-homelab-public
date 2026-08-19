@@ -1,0 +1,32 @@
+# Sanitized public example.
+# Production records, networks, and topology belong in private inventory.
+
+server:
+{% for interface in dns_service_interfaces %}
+  interface: {{ interface }}
+{% endfor %}
+
+  do-ip4: yes
+  do-ip6: yes
+  do-udp: yes
+  do-tcp: yes
+
+  hide-identity: yes
+  hide-version: yes
+  harden-glue: yes
+  harden-dnssec-stripped: yes
+  qname-minimisation: yes
+  minimal-responses: yes
+  prefetch: yes
+
+  access-control: 127.0.0.0/8 allow
+  access-control: ::1 allow
+
+{% for network in dns_allowed_networks %}
+  # Keep non-loopback ACLs private until service exposure is approved.
+  # access-control: {{ network }} allow
+{% endfor %}
+
+  # Documentation-only internal example:
+  # local-zone: "{{ dns_internal_domain }}." transparent
+  # local-data: "service.infra.{{ dns_internal_domain }}. IN A 192.0.2.20"

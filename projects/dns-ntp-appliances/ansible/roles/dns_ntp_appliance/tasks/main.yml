@@ -1,0 +1,25 @@
+---
+- name: Install DNS/NTP packages
+  ansible.builtin.package:
+    name:
+      - unbound
+      - chrony
+    state: present
+
+- name: Deploy sanitized Unbound appliance configuration
+  ansible.builtin.template:
+    src: unbound-appliance.conf.j2
+    dest: /etc/unbound/unbound.conf.d/10-appliance-public-example.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Validate and restart Unbound
+
+- name: Deploy sanitized Chrony appliance configuration
+  ansible.builtin.template:
+    src: chrony-appliance.conf.j2
+    dest: /etc/chrony/conf.d/20-appliance-public-example.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Validate and restart Chrony
