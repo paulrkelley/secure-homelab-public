@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.token
+*.secret

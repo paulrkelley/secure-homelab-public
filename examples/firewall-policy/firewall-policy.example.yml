@@ -1,0 +1,17 @@
+---
+# Conceptual, synthetic example. Not operational firewall configuration.
+policy:
+  default_inter_zone: deny
+
+rules:
+  - name: approved_bastion_to_hypervisor_management
+    source: privileged_bastion
+    destination: hypervisor_management
+    service: required_management_protocol
+    action: allow
+
+  - name: consumer_to_management
+    source: consumer_clients
+    destination: management_networks
+    service: any
+    action: deny

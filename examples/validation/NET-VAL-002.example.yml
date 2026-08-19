@@ -1,0 +1,16 @@
+test_id: NET-VAL-002
+definition_version: "1.0"
+title: Privileged Workstation Direct Management Denial
+classification: PUBLIC-SANITIZED
+expected: DENY
+cadence:
+  - POSTDEPLOY
+  - PERIODIC
+safety_class: SAFE
+status: example_definition
+procedure:
+  - Attempt the direct management path from the privileged workstation.
+  - Confirm the direct path is denied.
+  - Confirm the approved bastion-mediated path is tested separately as a positive control.
+notes:
+  - Operational addresses, hostnames, rule identifiers, and evidence are intentionally omitted.
